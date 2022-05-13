@@ -108,7 +108,7 @@
                     return response.json();
                 })
                 .then(jsondata => {
-                    this.city = localStorage.getItem('city');
+                    // this.city = localStorage.getItem('city');
                     this.citys = jsondata;
                 });
                 fetch("./data.json",{cache: 'no-cache'})
@@ -134,12 +134,12 @@
                     if(city==''){    
                         arrayData = data;
                     }else if(city!='' && town==''){ 
-                        localStorage.setItem('city',this.city);
+                        // localStorage.setItem('city',this.city);
                         arrayData = data.filter(function(row, index, arr){
                             return row.city == city;
                         });
                     }else if(city!='' && town!=''){ 
-                        localStorage.setItem('city',this.city);
+                        // localStorage.setItem('city',this.city);
                         arrayData = data.filter(function(row, index, arr){  
                             return row.city == city && row.town == town;
                         });      
