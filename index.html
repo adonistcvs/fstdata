@@ -46,11 +46,11 @@
                     
                     <Select v-model="city" class="form-select">
                         <option value="" selected>--請選擇縣市--</option>
-                        <option v-for="(item, index) in citys" :value="item.countyname" :key="index">{{ item.countyname }}</option>
+                        <option v-for="(item, index) in citys" :value="item.countyname" :key="index">{{ item.countyname }} (剩:{{item.city_count}})</option>
                     </Select>
                     <Select v-model="town" class="form-select">
                         <option value="" selected>--請選擇鄉鎮市區--</option>
-                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns">{{ town.townname }} </option>
+                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns">{{ town.townname }} (剩:{{item.town_count}})</option>
                     </Select>
                     <hr>
                     {{arrayData}}
@@ -99,7 +99,7 @@
                     data: [],
                     citys: [],
                     city: localStorage.getItem('city'),
-                    town: ''
+                    town: localStorage.getItem('town'),
                 }
             },
             created() {
@@ -139,6 +139,7 @@
                         });
                     }else if(city!='' && town!=''){ 
                         localStorage.setItem('city',this.city);
+                        localStorage.setItem('town',this.town);
                         arrayData = data.filter(function(row, index, arr){  
                             return row.city == city && row.town == town;
                         });      
