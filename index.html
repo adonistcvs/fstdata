@@ -97,8 +97,8 @@
                 return {
                     data: [],
                     citys: [],
-                    city: localStorage.getItem('city')?'':localStorage.getItem('city'),
-                    town: localStorage.getItem('town')?'':localStorage.getItem('town'),
+                    city: localStorage.getItem('city')?localStorage.getItem('city'):'',
+                    town: localStorage.getItem('town')?localStorage.getItem('town'):'',
                 }
             },
             created() {
