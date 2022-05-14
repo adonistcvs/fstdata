@@ -50,10 +50,9 @@
                     </Select>
                     <Select v-model="town" class="form-select">
                         <option value="" selected>--請選擇鄉鎮市區--</option>
-                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns">{{ town.townname }} (剩:{{item.town_count}})</option>
+                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns">{{ town.townname }} (剩:{{town.town_count}})</option>
                     </Select>
-                    <hr>
-                    {{arrayData}}
+                    <hr>             
                 </div>
             </div>
             
@@ -98,8 +97,8 @@
                 return {
                     data: [],
                     citys: [],
-                    city: localStorage.getItem('city'),
-                    town: localStorage.getItem('town'),
+                    city: localStorage.getItem('city')?'':localStorage.getItem('city'),
+                    town: localStorage.getItem('town')?'':localStorage.getItem('town'),
                 }
             },
             created() {
