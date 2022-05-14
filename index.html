@@ -50,7 +50,7 @@
                     </Select>
                     <Select v-model="town" class="form-select">
                         <option value="" selected>--請選擇鄉鎮市區--</option>
-                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns">{{ town.townname }} (剩:{{town.town_count}})</option>
+                        <option v-for="town in citys.find((arrcity) => arrcity.countyname === city)?.towns" :value="town.townname">{{ town.townname }} (剩:{{town.town_count}})</option>
                     </Select>
                     <hr>             
                 </div>
